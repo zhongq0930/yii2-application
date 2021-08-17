@@ -1,0 +1,68 @@
+{
+  "name": "zhongq0930/yii2-application",
+  "description": "Yii 2 Application Template",
+  "keywords": [
+    "yii2",
+    "framework",
+    "project template"
+  ],
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhongq0930",
+      "role": "Main developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.3.0",
+    "yiisoft/yii2": "~2.0.14",
+    "yiisoft/yii2-bootstrap4": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.1.0",
+    "yiisoft/yii2-gii": "~2.1.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "yii\\composer\\Installer::postInstall"
+    ],
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject",
+      "yii\\composer\\Installer::postInstall"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "api/runtime": "0777",
+          "app/runtime": "0777",
+          "console/runtime": "0777",
+          "web/assets": "0777",
+          "web/api/assets": "0777",
+          "yii": "0755"
+        }
+      ]
+    },
+    "yii\\composer\\Installer::postInstall": {
+      "copyFiles": [
+        {
+          "templates/config/api-local.php": "config/api-local.php",
+          "templates/config/app-local.php": "config/app-local.php",
+          "templates/config/common-local.php": "config/common-local.php",
+          "templates/config/console-local.php": "config/console-local.php",
+          "templates/config/params-local.php": "config/params-local.php",
+          "templates/web/api/index.php": "web/api/index.php",
+          "templates/web/index.php": "web/index.php",
+          "templates/web/robots.txt": "web/robots.txt"
+        }
+      ],
+      "generateCookieValidationKey": [
+        "config/app-local.php"
+      ]
+    }
+  }
+}
