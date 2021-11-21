@@ -1,6 +1,7 @@
 <?php
 
 Yii::setAlias('@root', dirname(__DIR__));
+Yii::setAlias('@admin', dirname(__DIR__) . '/admin');
 Yii::setAlias('@api', dirname(__DIR__) . '/api');
 Yii::setAlias('@app', dirname(__DIR__) . '/app');
 Yii::setAlias('@common', dirname(__DIR__) . '/common');

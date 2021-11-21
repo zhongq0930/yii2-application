@@ -5,6 +5,7 @@ namespace common\models;
 use common\db\ActiveRecord;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Url;
 use yii\web\IdentityInterface;
 
 /**
@@ -72,6 +73,15 @@ class Admin extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function afterFind()
+    {
+        parent::afterFind();
+
+        if (!$this->avatar) {
+            $this->avatar = Url::to('@web/img/avatar.png', true);
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -86,6 +96,17 @@ class Admin extends ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         return static::findOne(['access_token' => $token, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByUsername($username)
+    {
+        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

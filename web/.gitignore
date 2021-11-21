@@ -1,4 +1,7 @@
 index.php
 robots.txt
 
+admin/index.php
+admin/robots.txt
+
 api/index.php

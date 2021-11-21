@@ -51,17 +51,21 @@
     "yii\\composer\\Installer::postInstall": {
       "copyFiles": [
         {
+          "templates/config/admin-local.php": "config/admin-local.php",
           "templates/config/api-local.php": "config/api-local.php",
           "templates/config/app-local.php": "config/app-local.php",
           "templates/config/common-local.php": "config/common-local.php",
           "templates/config/console-local.php": "config/console-local.php",
           "templates/config/params-local.php": "config/params-local.php",
+          "templates/web/admin/index.php": "web/admin/index.php",
+          "templates/web/admin/robots.txt": "web/admin/robots.txt",
           "templates/web/api/index.php": "web/api/index.php",
           "templates/web/index.php": "web/index.php",
           "templates/web/robots.txt": "web/robots.txt"
         }
       ],
       "generateCookieValidationKey": [
+        "config/admin-local.php",
         "config/app-local.php"
       ]
     }
